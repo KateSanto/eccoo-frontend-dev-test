@@ -8,12 +8,15 @@
 </head>
 <body>
   <header>
-
+    <div id="image">
+      <span role="img" aria-label="Diverse group of people with colourful landscape on background"> </span>
+    <!-- <img src="../public/journey.jpg" alt="Diverse group of people with colourful landscape on background"> -->
+    </div>
   </header>
   <nav>
-    <ol>
+    <ol class="nav">
       {% for name, link in links %}
-        <li><a href="{{ link }}">{{ name }}</a></li>
+        <li class="nav-item"><a href="{{ link }}">{{ name }}</a></li>
       {% endfor %}
     </ol>
   </nav>
