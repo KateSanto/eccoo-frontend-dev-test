@@ -23,7 +23,7 @@ export class AppController {
   getHomepage() {
     return {
       links,
-      message: 'Welcome to the test app',
+      message: 'Welcome to the Equal Care Co-op test app',
     };
   }
   /**
@@ -34,6 +34,7 @@ export class AppController {
   getFrontend(@Query() query) {
     return {
       query: query,
+      links, 
     };
   }
   /**
