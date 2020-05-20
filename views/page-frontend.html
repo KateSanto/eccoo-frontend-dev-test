@@ -1,31 +1,39 @@
 {% extends 'page.html' %}
 
 {% macro formfield(id, label, type="text") %}
-  <fieldset>
-    <label class="coloured" for="{{ id }}">{{ label }}</label><input id="{{ id }}" name="{{ id }}" type="{{ type }}" />
-  </fieldset>
+<fieldset>
+  <label class="coloured" for="{{ id }}">{{ label }}</label><input id="{{ id }}" name="{{ id }}" type="{{ type }}" />
+</fieldset>
 {% endmacro %}
 
 {% block content %}
-  <form>
-    {{ formfield("name", "Name:") }}
-    <button>Click me</button>
-  </form>
+<form class="form-horizontal">
+  {{ formfield("name", "Name") }}
+  {{ formfield("email", "Email") }}
+  <div class="radio-buttons">
+    <input type="radio" id="support-me" name="support-choice" value="support-me" required>
+    <label for="support-me">The support is for me</label><br>
+    <input type="radio" id="support-others" name="support-choice" value="support-others">
+    <label for="support-others">The support is for someone else</label><br>
+  </div>
+  <button class="btn btn-success">Sign up</button>
+</form>
 
-  <code><pre>{{ query | dump(2) }}</pre></code>
+<!--Form input dump is not usable by user nor relevant for them. I've commented the code out to allow easy recovery and manipulation of data-->
+<!-- <code><pre>{{ query | dump(2) }}</pre></code> -->
 {% endblock %}
 
 <!--researching form classes before styling-->
 <form class="form-horizontal">
   <span class="heading">please login</span>
   <div class="form-group">
-      <label class="control-label" for="exampleInputName2">your email</label>
-      <input required="" name="login[username]" type="email" class="form-control" id="exampleInputEmail1">
+    <label class="control-label" for="exampleInputName2">your email</label>
+    <input required="" name="login[username]" type="email" class="form-control" id="exampleInputEmail1">
   </div>
   <div class="form-group">
-      <label class="control-label" for="exampleInputName2">password</label>
-      <input required="" name="login[password]" type="password" class="form-control">
+    <label class="control-label" for="exampleInputName2">password</label>
+    <input required="" name="login[password]" type="password" class="form-control">
   </div>
   <div class="form-group">
-      <button type="submit" class="btn btn-default">login</button>
+    <button type="submit" class="btn btn-default">login</button>
   </div>

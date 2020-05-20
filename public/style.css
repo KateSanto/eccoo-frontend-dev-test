@@ -18,10 +18,9 @@
 }
 
 
-body, input, button {
-  font-family: 'Times New Roman', Times, serif;
+body, input, .btn {
+  font-family: 'Roboto Slab', serif;
   font-size: x-large;  
-  
 }
 
 body > * {
@@ -39,7 +38,34 @@ body > * {
   
 }
 
-.nav-item {
+.nav-item a {
   padding-right: 1em;
+  color: black !important;
+
+}
+
+.radio-buttons {
+  margin: 20px;
+  margin-left: 0px;
+  /* trying to change radio button to black outline + black selector */
   color: black;
+}
+
+input[type=radio]{
+  transform:scale(3.5);
+  margin: 10px;
+}
+
+.btn, .btn:focus{
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 30px;
+    background: #118d78;
+    border: none;
+    border-radius: 6px;
+    font-size: x-large; 
+    /* font-weight: bold; */
+    color: #fff;
+    position: relative;
 }
