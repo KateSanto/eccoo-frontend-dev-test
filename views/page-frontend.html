@@ -1,39 +1,37 @@
 {% extends 'page.html' %}
 
-{% macro formfield(id, label, type="text") %}
-<fieldset>
-  <label class="coloured" for="{{ id }}">{{ label }}</label><input id="{{ id }}" name="{{ id }}" type="{{ type }}" />
+{% macro formfield(id, label, type="text", placeholder) %}
+<fieldset class="fieldset">
+  <label class="coloured" for="{{ id }}">{{ label }}</label><input class="input-field" id="{{ id }}" name="{{ id }}" type="{{ type }}"
+    placeholder="{{ placeholder }}" />
 </fieldset>
 {% endmacro %}
 
 {% block content %}
 <form class="form-horizontal">
-  {{ formfield("name", "Name") }}
-  {{ formfield("email", "Email") }}
+  <div class="form-fields">
+    <div class="single-field">
+      {{ formfield("name", "Name", "What should we call you?") }}
+    </div>
+    <div class="single-field">
+      {{ formfield("email", "Email", "e.g. me@example.com") }}
+    </div>
+  </div>
+
   <div class="radio-buttons">
-    <input type="radio" id="support-me" name="support-choice" value="support-me" required>
-    <label for="support-me">The support is for me</label><br>
-    <input type="radio" id="support-others" name="support-choice" value="support-others">
-    <label for="support-others">The support is for someone else</label><br>
+    <div class="single-button">
+      <input type="radio" id="support-me" name="support-choice" value="support-me" required>
+      <label for="support-me">The support is for me</label><br>
+    </div>
+    <div class="single-button">
+      <input type="radio" id="support-others" name="support-choice" value="support-others">
+      <label for="support-others">The support is for someone else</label><br>
+    </div>
   </div>
   <button class="btn btn-success">Sign up</button>
 </form>
 
-<!--Form input dump is not usable by user nor relevant for them. I've commented the code out to allow easy recovery and manipulation of data-->
+<!--Form input dump is not usable by user nor relevant for them. I've commented the code out to allow easy recovery and manipulation of data when needed-->
 <!-- <code><pre>{{ query | dump(2) }}</pre></code> -->
 {% endblock %}
 
-<!--researching form classes before styling-->
-<form class="form-horizontal">
-  <span class="heading">please login</span>
-  <div class="form-group">
-    <label class="control-label" for="exampleInputName2">your email</label>
-    <input required="" name="login[username]" type="email" class="form-control" id="exampleInputEmail1">
-  </div>
-  <div class="form-group">
-    <label class="control-label" for="exampleInputName2">password</label>
-    <input required="" name="login[password]" type="password" class="form-control">
-  </div>
-  <div class="form-group">
-    <button type="submit" class="btn btn-default">login</button>
-  </div>

@@ -13,8 +13,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-
-
 }
 
 
@@ -35,21 +33,59 @@ body > * {
   margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
-  
 }
 
 .nav-item a {
   padding-right: 1em;
   color: black !important;
+}
 
+.fieldset {
+  border-style: none;
+  line-height: 40px;
+}
+
+.single-field {
+  height: 50px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  line-height: 50px;
+  border-style: solid solid solid none;
+  border-width: thin;
+  border-radius: 6px;
+  border-color: grey;
+}
+
+.input-field {
+  line-height: 40px;
+  border-style: none;
+  padding-left: 10px;
+}
+
+.coloured {
+  background-color: rgb(1, 117, 146);
+  height: 48px;
+  width: 30%;
+  color: #fff;
+  text-align: left;
+  line-height: 50px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 6px 0px 0px 6px;
+  font-size: x-large; 
+  position: relative;
 }
 
 .radio-buttons {
-  margin: 20px;
+  margin: 30px;
   margin-left: 0px;
-  /* trying to change radio button to black outline + black selector */
-  color: black;
 }
+
+.single-button {
+margin: 10px 0;
+}
+
+/*Custom style radio buttons beyond making them bigger. How? Check out answers from stackoverflow tomorrow: https://stackoverflow.com/questions/4253920/how-do-i-change-the-color-of-radio-buttons*/
 
 input[type=radio]{
   transform:scale(3.5);
