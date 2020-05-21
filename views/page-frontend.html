@@ -1,14 +1,25 @@
 {% extends 'page.html' %}
 
 {% macro formfield(id, label, type="text", placeholder) %}
-<fieldset class="fieldset">
-  <label class="coloured" for="{{ id }}">{{ label }}</label><input class="input-field" id="{{ id }}" name="{{ id }}" type="{{ type }}"
-    placeholder="{{ placeholder }}" />
+<fieldset>
+  <label class="coloured" for="{{ id }}">{{ label }}</label><input class="input-field" id="{{ id }}" name="{{ id }}"
+    type="{{ type }}" placeholder="{{ placeholder }}" />
 </fieldset>
 {% endmacro %}
 
+{% macro radiofield(type="radio", id, name, label, required) %}
+<fieldset>
+  <input type="{{ type }}" id="{{ id }}" name="{{ name }}" required>
+  <label for="{{ id }}">{{ label }}</label><br>
+</fieldset>
+{% endmacro %}
+
+
 {% block content %}
 <form class="form-horizontal">
+
+  <h1>Sign up for support</h1>
+
   <div class="form-fields">
     <div class="single-field">
       {{ formfield("name", "Name", "What should we call you?") }}
@@ -20,18 +31,17 @@
 
   <div class="radio-buttons">
     <div class="single-button">
-      <input type="radio" id="support-me" name="support-choice" value="support-me" required>
-      <label for="support-me">The support is for me</label><br>
+      {{ radiofield("support-me", "support-choice", "The support is for me") }}
     </div>
     <div class="single-button">
-      <input type="radio" id="support-others" name="support-choice" value="support-others">
-      <label for="support-others">The support is for someone else</label><br>
+      {{ radiofield("support-others", "support-choice", "The support is for someone else") }}
     </div>
   </div>
+
   <button class="btn btn-success">Sign up</button>
+
 </form>
 
 <!--Form input dump is not usable by user nor relevant for them. I've commented the code out to allow easy recovery and manipulation of data when needed-->
 <!-- <code><pre>{{ query | dump(2) }}</pre></code> -->
 {% endblock %}
-
